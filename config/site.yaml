@@ -11,21 +11,19 @@
 # Site Basic Information
 # =============================================================================
 site:
-  title: 余弦の博客 # 网站名称
+  title: 面包の博客 # 网站名称
   alternate: cosine # 网站英文名称 用于页脚、Logo、@ handle 等
-  subtitle: WA 的一声就哭了 # 网站副标题
-  name: cos # 作者名称 - 请修改为你的名字
-  description: 一个基于 Astro 的现代化博客主题 # 网站描述
-  avatar: /img/avatar.webp # 网站头像
-  showLogo: true # 是否显示 Logo
-  author: Author # 作者名称 - 请修改为你的名字
-  url: https://koharu.cosine.ren # 站点 URL 用于 RSS 和 SEO
-  defaultOgImage: /img/avatar.webp # 默认 Open Graph 图片
+  subtitle: # 网站副标题
+  name: 面包 # 作者名称 - 请修改为你的名字
+  avatar: /img/effects/avatar.jpg # 网站头像
+  showLogo: false # 是否显示 Logo
+  author: 面包 # 作者名称 - 请修改为你的名字
+  url: https://mianbao.chat # 站点 URL 用于 RSS 和 SEO
+  defaultOgImage: /img/avatar.png # 默认 Open Graph 图片
   startYear: 2024 # 建站年份
   timezone: Asia/Shanghai # 时区配置 (IANA 格式)，用于日期显示和处理
   keywords: # SEO 关键词 (全局)
     - 博客
-    - Astro
     - 技术
     - 前端
     # 请根据你的网站内容添加关键词
@@ -161,10 +159,10 @@ featuredSeries:
 # 添加新平台：复制现有配置块，修改键名和各字段值即可
 # -----------------------------------------------------------------------------
 social:
-  github:
-    url: https://github.com/your-username # 替换为你的 GitHub 链接
-    icon: ri:github-fill # Remix Icon 的 GitHub 图标
-    color: '#191717' # (可选) 图标颜色
+  bilibili:
+    url: https://space.bilibili.com/your-id # 替换为你的 Bilibili 链接
+    icon: ri:bilibili-fill # Remix Icon 的 Bilibili 图标
+    color: '#da708a' # (可选) 图标颜色
   email:
     url: mailto:your@email.com # 替换为你的邮箱，需加 mailto: 前缀
     icon: ri:mail-line

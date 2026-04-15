@@ -1,36 +1,35 @@
 ---
-title: astro-koharu 使用指南
-link: astro-koharu-guide
+title: 使用指南
+link: shi-yong-zhi-nan
+sticky: true 
 catalog: true
-date: 2025-12-29 21:55:00
+date: 2026-03-05 17:09:00
 math: true
 quiz: true
-description: astro-koharu 博客的完整使用指南，包含快速开始、配置说明、文章系统、界面功能等详细介绍
+description: 博客的完整使用指南，包含快速开始、配置说明、文章系统、界面功能等详细介绍
 tags:
-  - Astro
+  - 指南
   - 博客
   - 教程
+  - 前端
 categories:
   - 工具
 ---
 
-一份完整的 astro-koharu 博客系统使用指南，帮助你快速上手并充分利用所有功能特性。
+一份完整的 博客系统使用指南，帮助你快速上手并充分利用所有功能特性。
 
-https://github.com/cosZone/astro-koharu
+## 联系信息
+
+- <span style="color: #666;">微信 电话：</span><span style="color: #0066cc;">13265031714</span>
+- <span style="color: #666;">QQ：</span><span style="color: red;">3284016211</span>
 
 ## 快速开始
 
-### 项目简介
-
-astro-koharu 是一个基于 Astro 5.x 构建的现代化博客系统，从 Hexo 迁移而来，设计灵感和初衷都来自 [Shoka](https://github.com/amehime/hexo-theme-shoka) 主题。欢迎 [fork](https://github.com/cosZone/astro-koharu/fork) 出来制作自己的主题。
-
 **核心特点：**
 
-- 基于 Astro 5.x，静态站点生成，性能优异
 - 优雅的深色/浅色主题切换
 - 基于 Pagefind 的无后端全站搜索
 - 完整的 Markdown 增强功能（GFM、代码高亮、自动目录）
-- 灵活的多级分类与标签系统（从 Shoka 主题迁移，后续会考虑将其改为可关闭的）
 - 多系列文章支持（周刊、书摘等自定义系列，支持自定义 URL slug）
 - 响应式设计
 - 草稿与置顶功能
@@ -46,7 +45,7 @@ astro-koharu 是一个基于 Astro 5.x 构建的现代化博客系统，从 Hexo
 
 ```bash
 # 克隆项目
-git clone https://github.com/cosZone/astro-koharu.git
+git clone https://github.com/patamoko/astro-koharu.git
 cd astro-koharu
 
 # 安装依赖
@@ -62,18 +61,6 @@ pnpm build
 pnpm preview
 ```
 
-### 快速部署
-
-使用 Vercel 进行一键部署：
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/cosZone/astro-koharu&project-name=astro-koharu&repository-name=astro-koharu)
-
-### 构建缓存说明
-
-项目将 `.cache/og-data.json` 提交到 Git 仓库。该文件缓存了链接嵌入功能抓取的外部链接 OG 元数据（标题、描述、图片等），提交到 Git 后 Vercel、Netlify 等平台构建时可直接复用，无需每次重新抓取，显著加速构建速度。
-
-`.cache/` 目录下的其他文件（如 `transformers/` 模型缓存、`summaries-cache.json`）仍被 `.gitignore` 忽略，不会提交。
-
 ## 基本配置
 
 ### 站点配置
@@ -85,16 +72,16 @@ pnpm preview
 # 站点基础信息
 # =============================================================================
 site:
-  title: 余弦の博客 # 网站标题
-  alternate: cosine # 英文短名（用作 logo 文本）
-  subtitle: WA 的一声就哭了 # 副标题
-  name: cos # 站点作者简称
-  description: FE / ACG / 手工 / 深色模式强迫症 / INFP # 站点简介
-  avatar: /img/avatar.webp # 头像路径
+  title: # 网站标题
+  alternate: # 英文短名（用作 logo 文本）
+  subtitle: # 副标题
+  name: # 站点作者简称
+  description: # 站点简介
+  avatar: # 头像路径
   showLogo: true # 是否显示 logo
-  author: cos # 文章作者
-  url: https://blog.cosine.ren/ # 站点域名
-  startYear: 2020 # 站点创建年份
+  author: # 文章作者
+  url: # 站点域名
+  startYear: # 站点创建年份
   keywords: # SEO 关键词
     - cos
     - cosine
@@ -188,8 +175,6 @@ featuredSeries:
     label: FE Bits # 显示标签
     fullName: FE Bits 前端周周谈 # 完整名称
     description: | # 描述（支持多行）
-      之前在自己的频道进行一些输出，于是有了这个周刊！
-      更新时间期望是在每周天
     cover: /img/weekly_header.webp # 封面图
     enabled: true # 是否启用
     icon: ri:newspaper-line # 导航图标（可选）
@@ -383,7 +368,6 @@ excludeFromSummary: false # 是否排除 AI 摘要和相似度计算（默认 fa
 math: false # 是否启用数学公式渲染（默认 false，启用后支持 KaTeX）
 quiz: false # 是否启用练习题交互（默认 false，启用后支持四种题型）
 password: mySecret # 整篇文章加密密码（可选，设置后整篇文章需输入密码才能阅读）
-keywords: # 文章关键词（可选）
 ---
 ```
 
@@ -541,13 +525,13 @@ comments: false
 
 **Frontmatter 字段：**
 
-| 字段          | 必填 | 说明                                          |
-| ------------- | ---- | --------------------------------------------- |
-| `layout`      | ✅   | 固定为 `../layouts/PageLayout.astro`          |
-| `title`       | ✅   | 页面标题（用于浏览器标签页）                  |
-| `description` | ❌   | 页面描述（用于 SEO）                          |
-| `coverTitle`  | ❌   | 封面显示的标题（默认使用 `title`）            |
-| `comments`    | ❌   | 是否显示评论区（默认 `true`）                 |
+| 字段          | 必填 | 说明                                 |
+| ------------- | ---- | ------------------------------------ |
+| `layout`      | ✅   | 固定为 `../layouts/PageLayout.astro` |
+| `title`       | ✅   | 页面标题（用于浏览器标签页）         |
+| `description` | ❌   | 页面描述（用于 SEO）                 |
+| `coverTitle`  | ❌   | 封面显示的标题（默认使用 `title`）   |
+| `comments`    | ❌   | 是否显示评论区（默认 `true`）        |
 
 **添加导航入口：**
 
@@ -954,7 +938,6 @@ AI 摘要会保存在 `src/assets/summaries.json` 文件中，格式如下：
 **在哪里使用：**
 
 1. **文章详情页**：面包屑导航下方显示可折叠的 AI 摘要卡片
-
    - 默认收起状态，点击"展开"按钮触发
    - 展开后以打字机动画逐字显示摘要内容
    - 打字机动画仅播放一次，支持 `prefers-reduced-motion` 用户偏好
@@ -1232,31 +1215,26 @@ data
 **可用模板类型：**
 
 - **列表类** (`list-*`)：展示信息列表
-
   - `list-grid-badge-card` - 卡片网格布局
   - `list-grid-candy-card-lite` - 糖果风格卡片
   - `list-row-horizontal-icon-arrow` - 水平图标箭头列表
 
 - **流程/顺序类** (`sequence-*`)：展示步骤、流程或阶段
-
   - `sequence-zigzag-steps-underline-text` - 之字形步骤
   - `sequence-circular-simple` - 圆形流程
   - `sequence-roadmap-vertical-simple` - 垂直路线图
   - `sequence-pyramid-simple` - 金字塔结构
 
 - **对比类** (`compare-*`)：二元或多元对比
-
   - `compare-binary-horizontal-simple-fold` - 水平二元对比
   - `compare-swot` - SWOT 分析
   - `compare-hierarchy-left-right-circle-node-pill-badge` - 层级左右对比
 
 - **层级类** (`hierarchy-*`)：展示树形结构
-
   - `hierarchy-tree-tech-style-capsule-item` - 科技风格树形图
   - `hierarchy-tree-curved-line-rounded-rect-node` - 曲线连接树形图
 
 - **图表类** (`chart-*`)：数据可视化
-
   - `chart-column-simple` - 柱状图
   - `chart-bar-plain-text` - 条形图
   - `chart-pie-plain-text` - 饼图
@@ -1372,19 +1350,19 @@ https://zhuanlan.zhihu.com/p/1900483903984243480
 
 astro-koharu 从 Hexo Shoka 主题迁移了一套丰富的 Markdown 扩展语法，所有功能均可通过 `config/site.yaml` 的 `content` 配置项独立开关。
 
-*文字特效（`enableShokaEffects`）：*
+_文字特效（`enableShokaEffects`）：_
 
 支持多种行内文字装饰效果：
 
-| 语法                    | 效果       | 说明                               |
-| ----------------------- | ---------- | ---------------------------------- |
-| `++文字++`              | 下划线     | `<ins>` 标签                       |
-| `++文字++{.wavy}`       | 波浪下划线 | 支持 `.wavy` 修饰符                |
-| `++文字++{.dot}`        | 着重点     | 支持 `.dot` 修饰符                 |
-| `++文字++{.primary}`    | 彩色下划线 | 支持 `.primary` `.success` `.warning` `.danger` `.info` |
-| `==文字==`              | 高亮       | `<mark>` 标签                      |
-| `~文字~`                | 下标       | `<sub>` 标签，如 H~2~O            |
-| `^文字^`                | 上标       | `<sup>` 标签，如 E=mc^2^          |
+| 语法                 | 效果       | 说明                                                    |
+| -------------------- | ---------- | ------------------------------------------------------- |
+| `++文字++`           | 下划线     | `<ins>` 标签                                            |
+| `++文字++{.wavy}`    | 波浪下划线 | 支持 `.wavy` 修饰符                                     |
+| `++文字++{.dot}`     | 着重点     | 支持 `.dot` 修饰符                                      |
+| `++文字++{.primary}` | 彩色下划线 | 支持 `.primary` `.success` `.warning` `.danger` `.info` |
+| `==文字==`           | 高亮       | `<mark>` 标签                                           |
+| `~文字~`             | 下标       | `<sub>` 标签，如 H~2~O                                  |
+| `^文字^`             | 上标       | `<sup>` 标签，如 E=mc^2^                                |
 
 示例效果：
 
@@ -1396,7 +1374,7 @@ astro-koharu 从 Hexo Shoka 主题迁移了一套丰富的 Markdown 扩展语法
 
 H~2~O 是水的化学式，E = mc^2^ 是质能方程
 
-*颜色文字与特殊样式（`enableShokaAttrs`）：*
+_颜色文字与特殊样式（`enableShokaAttrs`）：_
 
 使用 `[文字]{.class}` 语法为文字添加颜色和样式：
 
@@ -1422,7 +1400,7 @@ H~2~O 是水的化学式，E = mc^2^ 是质能方程
 
 [默认]{.label .default} [主要]{.label .primary} [信息]{.label .info} [成功]{.label .success} [警告]{.label .warning} [危险]{.label .danger}
 
-*隐藏文字 / Spoiler（`enableShokaSpoiler`）：*
+_隐藏文字 / Spoiler（`enableShokaSpoiler`）：_
 
 ```markdown
 这里有一段!!隐藏文字，点击显示!!
@@ -1439,7 +1417,7 @@ H~2~O 是水的化学式，E = mc^2^ 是质能方程
 - 默认模式：点击后粒子消散动画揭示文字（基于 spoilerjs Web Component）
 - `.blur` 模式：鼠标悬停时模糊消失
 
-*注音标注 / Ruby（`enableShokaRuby`）：*
+_注音标注 / Ruby（`enableShokaRuby`）：_
 
 为 CJK 文字添加注音，适用于日语假名、汉语拼音等：
 
@@ -1455,7 +1433,7 @@ H~2~O 是水的化学式，E = mc^2^ 是质能方程
 
 渲染为 HTML `<ruby>` 标签，浏览器原生支持。
 
-*提醒块 / Note Blocks（`enableShokaContainers`）：*
+_提醒块 / Note Blocks（`enableShokaContainers`）：_
 
 使用 `:::` 语法创建不同样式的提醒块：
 
@@ -1505,7 +1483,7 @@ H~2~O 是水的化学式，E = mc^2^ 是质能方程
 
 支持的样式：`default`、`primary`、`info`、`success`、`warning`、`danger`。添加 `no-icon` 可隐藏图标。提醒块内部支持嵌套 Markdown 语法。
 
-*折叠块 / Collapse（`enableShokaContainers`）：*
+_折叠块 / Collapse（`enableShokaContainers`）：_
 
 使用 `+++` 语法创建可折叠内容（渲染为 `<details>` + `<summary>`）：
 
@@ -1533,7 +1511,7 @@ H~2~O 是水的化学式，E = mc^2^ 是质能方程
 
 - 列表项 1
 - 列表项 2
-+++
+  +++
 
 +++warning 注意事项
 需要注意的内容
@@ -1541,64 +1519,77 @@ H~2~O 是水的化学式，E = mc^2^ 是质能方程
 
 支持的样式：`primary`、`info`、`success`、`warning`、`danger`。
 
-*标签卡 / Tabs（`enableShokaContainers`）：*
+_标签卡 / Tabs（`enableShokaContainers`）：_
 
 使用 `;;;` 语法创建标签页切换，同一组 ID 的标签卡会自动组合：
 
 ````markdown
 ;;;mygroup JavaScript
+
 ```js
-console.log('Hello, World!');
+console.log("Hello, World!");
 ```
+
 ;;;
 
 ;;;mygroup Python
+
 ```python
 print('Hello, World!')
 ```
+
 ;;;
 
 ;;;mygroup Rust
+
 ```rust
 fn main() {
     println!("Hello, World!");
 }
 ```
+
 ;;;
 ````
 
 示例效果：
 
 ;;;guide-tab1 JavaScript
+
 ```js
-console.log('Hello, World!');
+console.log("Hello, World!");
 ```
+
 ;;;
 
 ;;;guide-tab1 Python
+
 ```python
 print('Hello, World!')
 ```
+
 ;;;
 
 ;;;guide-tab1 Rust
+
 ```rust
 fn main() {
     println!("Hello, World!");
 }
 ```
+
 ;;;
 
 - `;;;groupId 标签名` 定义一个标签页，同一 `groupId` 的标签自动组合
 - 第一个标签默认激活
 - 标签内支持任意 Markdown 内容
 
-*友链卡片（`enableShokaHexoTags`）：*
+_友链卡片（`enableShokaHexoTags`）：_
 
 使用 `{% links %}` 标签在文章中插入友链卡片网格：
 
 ```markdown
 {% links %}
+
 - site: 博客名称
   url: https://example.com
   owner: 站长昵称
@@ -1611,93 +1602,90 @@ fn main() {
   desc: 一个热爱技术的博客
   image: https://api.dicebear.com/7.x/avataaars/svg?seed=Alice
   color: '#BEDCFF'
-{% endlinks %}
+  {% endlinks %}
 ```
 
 示例效果：
 
 {% links %}
-- site: 余弦の博客
-  url: https://blog.cosine.ren
-  owner: cos
-  desc: FE / ACG / 手工
-  image: https://blog.cosine.ren/img/avatar.webp
-  color: '#ed788b'
+
 - site: 示例博客
   url: https://example.com
   owner: Alice
   desc: 一个热爱技术的博客
   image: https://api.dicebear.com/7.x/avataaars/svg?seed=Alice
   color: '#BEDCFF'
-{% endlinks %}
+  {% endlinks %}
 
 卡片数据使用 YAML 格式，支持 `site`、`url`、`owner`、`desc`、`image`、`color` 字段。
 
-*音频播放器（`enableShokaHexoTags`）：*
+_音频播放器（`enableShokaHexoTags`）：_
 
-使用 `{% media audio %}` 标签嵌入音频播放器，支持网易云音乐、QQ 音乐等平台（通过 [Meting](https://github.com/metowolf/meting) API 解析）。
-
-默认使用 `https://163.hyc.moe/` 作为 Meting API，可在 `config/site.yaml` 的 `bgm.metingApi` 中自定义，推荐自部署以获得更稳定的服务。
+使用 `{% media audio %}` 标签嵌入音频播放器，支持网易云音乐等平台（通过 Meting API 解析）：
 
 ```markdown
 {% media audio %}
+
 - name: 歌曲名称
-  url: https://music.163.com/#/song?id=3339210292
-{% endmedia %}
+  url: https://y.qq.com/n/ryqq_v2/playlist/9675480577
+  {% endmedia %}
 ```
 
 示例效果：
 
 {% media audio %}
+
 - name: 示例音频
-  url: https://music.163.com/#/song?id=3339210292
-{% endmedia %}
+  url: https://y.qq.com/n/ryqq_v2/playlist/9675480577
+  {% endmedia %}
 
 支持歌单模式，可配置多个分组：
 
 ```markdown
 {% media audio %}
+
 - title: 歌单名称 1
   list:
-    - https://music.163.com/#/playlist?id=8676645748
+  - https://y.qq.com/n/ryqq_v2/songDetail/002Oq62v3dacz6
 - title: 歌单名称 2
-  list:
-    - https://music.163.com/#/playlist?id=17606384886
-{% endmedia %}
+  list: - https://music.163.com/#/playlist?id=17606384886
+  {% endmedia %}
 ```
 
 {% media audio %}
+
 - title: 歌单名称 1
   list:
-    - https://music.163.com/#/playlist?id=8676645748
+  - https://music.163.com/#/playlist?id=8676645748
 - title: 歌单名称 2
-  list:
-    - https://music.163.com/#/playlist?id=17606384886
-{% endmedia %}
+  list: - https://music.163.com/#/playlist?id=17606384886
+  {% endmedia %}
 
-*视频播放器（`enableShokaHexoTags`）：*
+_视频播放器（`enableShokaHexoTags`）：_
 
 使用 `{% media video %}` 标签嵌入视频播放器：
 
 ```markdown
 {% media video %}
+
 - name: 视频 1
   url: https://example.com/video1.mp4
 - name: 视频 2
   url: https://example.com/video2.mp4
-{% endmedia %}
+  {% endmedia %}
 ```
 
 {% media video %}
+
 - name: 视频 1
   url: https://example.com/video1.mp4
 - name: 视频 2
   url: https://example.com/video2.mp4
-{% endmedia %}
+  {% endmedia %}
 
 多个视频时自动显示播放列表。
 
-*练习题系统（`enableQuiz`）：*
+_练习题系统（`enableQuiz`）：_
 
 支持四种交互式题型，适合教程和学习笔记。需在文章 frontmatter 中设置 `quiz: true`。
 
@@ -1791,7 +1779,7 @@ fn main() {
 - `[错误答案]{.mistake}` 标记常见错误（首次答错时提示）
 - `>` 引用块内容为解析说明
 
-*数学公式（`enableMath`）：*
+_数学公式（`enableMath`）：_
 
 基于 KaTeX 渲染数学公式。需在文章 frontmatter 中设置 `math: true`：
 
@@ -1815,14 +1803,14 @@ $$
 \sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}
 $$
 
-*代码块增强（`enableCodeMeta`）：*
+_代码块增强（`enableCodeMeta`）：_
 
 代码块支持额外的元数据标注：
 
-`````markdown
+````markdown
 ```js title="hello.js" url="https://example.com" linkText="查看源码" mark:1,3
-const greeting = 'Hello';
-const name = 'World';
+const greeting = "Hello";
+const name = "World";
 console.log(`${greeting}, ${name}!`);
 ```
 
@@ -1831,21 +1819,21 @@ npm install astro
 npm run dev
 npm run build
 ```
-`````
+````
 
-| 元数据                  | 说明                                     |
-| ----------------------- | ---------------------------------------- |
-| `title="文件名"`        | 显示代码块标题                           |
-| `url="链接"`            | 添加外部源码链接                         |
-| `linkText="文字"`       | 自定义链接文字（默认为 URL）             |
-| `mark:1,3`              | 高亮指定行                               |
-| `command:("$":1-3)`     | 标记 shell 命令行（显示 `$` 前缀）       |
+| 元数据              | 说明                               |
+| ------------------- | ---------------------------------- |
+| `title="文件名"`    | 显示代码块标题                     |
+| `url="链接"`        | 添加外部源码链接                   |
+| `linkText="文字"`   | 自定义链接文字（默认为 URL）       |
+| `mark:1,3`          | 高亮指定行                         |
+| `command:("$":1-3)` | 标记 shell 命令行（显示 `$` 前缀） |
 
 示例效果：
 
 ```js title="hello.js" url="https://example.com" linkText="查看源码" mark:1,3
-const greeting = 'Hello';
-const name = 'World';
+const greeting = "Hello";
+const name = "World";
 console.log(`${greeting}, ${name}!`);
 ```
 
@@ -1855,28 +1843,28 @@ npm run dev
 npm run build
 ```
 
-*Shoka 功能配置总览：*
+_Shoka 功能配置总览：_
 
 所有 Shoka 兼容功能均可在 `config/site.yaml` 的 `content` 部分独立开关：
 
 ```yaml
 content:
   # Shoka 兼容功能（默认全部启用，设为 false 可关闭）
-  enableShokaContainers: true   # :::提醒块 ;;;标签卡 +++折叠块
-  enableShokaAttrs: true        # [text]{.class} 属性语法
-  enableShokaEffects: true      # ++下划线++ ==高亮== ~下标~ ^上标^
-  enableShokaSpoiler: true      # !!隐藏文字!!
-  enableShokaRuby: true         # {文字^注音} 注音标注
-  enableShokaHexoTags: true     # {% links %} {% media %} Hexo 标签
-  enableMath: true              # $数学公式$ KaTeX 渲染
-  enableCodeMeta: true          # 代码块增强 (title, mark, command)
-  enableQuiz: true              # 练习题交互功能
-  enableEncryptedBlock: true    # :::encrypted{password="..."} 加密内容块
+  enableShokaContainers: true # :::提醒块 ;;;标签卡 +++折叠块
+  enableShokaAttrs: true # [text]{.class} 属性语法
+  enableShokaEffects: true # ++下划线++ ==高亮== ~下标~ ^上标^
+  enableShokaSpoiler: true # !!隐藏文字!!
+  enableShokaRuby: true # {文字^注音} 注音标注
+  enableShokaHexoTags: true # {% links %} {% media %} Hexo 标签
+  enableMath: true # $数学公式$ KaTeX 渲染
+  enableCodeMeta: true # 代码块增强 (title, mark, command)
+  enableQuiz: true # 练习题交互功能
+  enableEncryptedBlock: true # :::encrypted{password="..."} 加密内容块
 ```
 
 > **提示**：完整的语法演示可参考 [Shoka 主题 Markdown 语法演示](/post/shoka-features) 文章。
 
-*内容加密（`enableEncryptedBlock`）：*
+_内容加密（`enableEncryptedBlock`）：_
 
 博客支持两种加密方式，满足不同的内容保护需求：
 
@@ -1910,7 +1898,6 @@ password: mySecretPassword
 categories:
   - 笔记
 ---
-
 这里的所有内容都会被加密...
 ```
 
@@ -1929,13 +1916,13 @@ categories:
 
 **加密文章的特殊行为：**
 
-| 方面 | 行为 |
-|------|------|
-| RSS 订阅 | 标题前加 🔒 前缀，内容替换为"此文章已加密"提示 |
+| 方面       | 行为                                                                          |
+| ---------- | ----------------------------------------------------------------------------- |
+| RSS 订阅   | 标题前加 🔒 前缀，内容替换为"此文章已加密"提示                                |
 | SEO / meta | description 使用 frontmatter 中的 `description`（若未设置则显示通用加密提示） |
-| 搜索索引 | 加密内容不会被 Pagefind 索引 |
-| 目录导航 | 解锁前不显示，解锁后自动重建 |
-| AI 摘要 | 基于加密前的原文生成（构建时可访问明文） |
+| 搜索索引   | 加密内容不会被 Pagefind 索引                                                  |
+| 目录导航   | 解锁前不显示，解锁后自动重建                                                  |
+| AI 摘要    | 基于加密前的原文生成（构建时可访问明文）                                      |
 
 **其他增强：**
 
@@ -1953,7 +1940,7 @@ categories:
 
 ```yaml
 i18n:
-  defaultLocale: zh        # 默认语言（URL 无前缀）
+  defaultLocale: zh # 默认语言（URL 无前缀）
   locales:
     - code: zh
       label: 中文
@@ -1963,6 +1950,7 @@ i18n:
 ```
 
 配置多语言后：
+
 - 默认语言的页面 URL 不带前缀（如 `/post/hello`）
 - 其他语言自动加前缀（如 `/en/post/hello`）
 - 导航栏（桌面端）和移动端抽屉中自动显示语言切换器
@@ -2048,11 +2036,11 @@ i18n:
 2. 创建 UI 翻译文件 `src/i18n/translations/ja.ts`：
 
 ```typescript
-import type { UIStrings } from '../types';
+import type { UIStrings } from "../types";
 
 export const uiStrings: UIStrings = {
-  'nav.home': 'ホーム',
-  'common.search': '検索',
+  "nav.home": "ホーム",
+  "common.search": "検索",
   // ... 按需翻译，未提供的 key 自动回退到中文
 };
 ```
@@ -2060,7 +2048,7 @@ export const uiStrings: UIStrings = {
 3. 在 `src/i18n/translations/index.ts` 中注册：
 
 ```typescript
-import { uiStrings as ja } from './ja';
+import { uiStrings as ja } from "./ja";
 
 export const translations: Record<string, DefaultUIStrings | UIStrings> = {
   zh,
@@ -2091,11 +2079,11 @@ const locale = getLocaleFromUrl(Astro.url.pathname);
 **React 组件**（`.tsx` 文件）中：
 
 ```tsx
-import { useTranslation } from '@hooks/useTranslation';
+import { useTranslation } from "@hooks/useTranslation";
 
 function MyComponent() {
   const { t, locale } = useTranslation();
-  return <button>{t('common.search')}</button>;
+  return <button>{t("common.search")}</button>;
 }
 ```
 
@@ -2122,24 +2110,7 @@ analytics:
     enabled: true
     id: your-umami-id
     endpoint: https://stats.example.com
-    # 页面访问量展示（可选）
-    statistics_display:
-      token: your-umami-share-token  # Umami 分享链接令牌（只读，可安全暴露到客户端）
-      article_page_views: true        # 在文章卡片和详情页显示访问量
-      footer_site_stats: true         # 在页脚显示全站访问量
 ```
-
-#### 获取 Umami Share Token
-
-`statistics_display.token` 是 Umami 的**分享链接令牌**，用于通过公开 API 读取统计数据（只读权限，可安全暴露到前端）。获取步骤：
-
-1. 登录你的 Umami 后台
-2. 进入 **Settings → Websites**，选择你的站点
-3. 点击右侧 **Share URL** 按钮（分享图标）
-4. 开启 **Enable share URL** 开关，此时会生成一个分享链接，形如：`https://stats.example.com/share/xxxxxxxx/site-name`
-5. 链接中 `/share/` 后面的那段字符串（如 `xxxxxxxx`）即为 share token，将其填入 `statistics_display.token` 即可
-
-> 注：Share token 仅提供只读权限，无法通过它修改任何数据或配置，因此可以安全地暴露到客户端代码中。
 
 ## 开发指南
 
@@ -2313,11 +2284,6 @@ analytics:
     enabled: true
     id: your-umami-id
     endpoint: https://your-umami-server.com
-    # 页面访问量展示（可选，需要 share token）
-    # statistics_display:
-    #   token: your-umami-share-token
-    #   article_page_views: true
-    #   footer_site_stats: true
 ```
 
 Docker 端口可在 `.env` 中配置 `BLOG_PORT=4321`。
@@ -2455,23 +2421,23 @@ pnpm koharu update --dry-run
 
 **选项说明：**
 
-| 选项            | 说明                                                |
-| --------------- | --------------------------------------------------- |
-| `--check`       | 仅检查更新，不执行合并                              |
-| `--skip-backup` | 跳过备份步骤（clean/rebase 模式下无效，强制备份）   |
-| `--force`       | 跳过工作区脏检查和确认提示（不影响合并方式）        |
-| `--tag`         | 指定目标版本（如 `v2.1.0`），支持升级和降级         |
-| `--clean`       | Clean 模式，零冲突更新（替换主题文件 + 还原用户内容）|
-| `--rebase`      | Rebase 模式，重写历史完全同步上游（强制要求备份）   |
-| `--dry-run`     | 预览操作，不实际执行                                |
+| 选项            | 说明                                                  |
+| --------------- | ----------------------------------------------------- |
+| `--check`       | 仅检查更新，不执行合并                                |
+| `--skip-backup` | 跳过备份步骤（clean/rebase 模式下无效，强制备份）     |
+| `--force`       | 跳过工作区脏检查和确认提示（不影响合并方式）          |
+| `--tag`         | 指定目标版本（如 `v2.1.0`），支持升级和降级           |
+| `--clean`       | Clean 模式，零冲突更新（替换主题文件 + 还原用户内容） |
+| `--rebase`      | Rebase 模式，重写历史完全同步上游（强制要求备份）     |
+| `--dry-run`     | 预览操作，不实际执行                                  |
 
 **三种更新模式：**
 
-| 模式 | 命令 | 适合场景 | 备份 | 冲突处理 |
-|------|------|---------|------|---------|
-| **默认** | `pnpm koharu update` | 日常更新 | 可选 | 用户内容自动保留，主题冲突手动解决 |
-| **Clean** | `--clean` | 首次迁移、冲突较多 | 强制 | 零冲突 |
-| **Rebase** | `--rebase` | 熟悉 git 的用户 | 强制 | 需手动解决 |
+| 模式       | 命令                 | 适合场景           | 备份 | 冲突处理                           |
+| ---------- | -------------------- | ------------------ | ---- | ---------------------------------- |
+| **默认**   | `pnpm koharu update` | 日常更新           | 可选 | 用户内容自动保留，主题冲突手动解决 |
+| **Clean**  | `--clean`            | 首次迁移、冲突较多 | 强制 | 零冲突                             |
+| **Rebase** | `--rebase`           | 熟悉 git 的用户    | 强制 | 需手动解决                         |
 
 **默认模式（Merge）：**
 
@@ -2494,6 +2460,7 @@ chore: merge upstream theme v2.3.2
 用上游最新版本**替换所有主题文件**，然后从备份**还原用户内容**，实现零冲突更新。
 
 执行流程：
+
 1. 强制备份你的博客内容
 2. 创建 merge commit 记录版本关系
 3. 用上游文件覆盖本地所有文件
@@ -2506,6 +2473,7 @@ chore: merge upstream theme v2.3.2
 - 使用 `--full` 备份选项可额外保留 favicon、LQIP、相似度、AI 摘要等生成资产
 
 适用场景：
+
 - 首次从旧版本迁移，历史冲突太多无法正常 merge
 - 没有自定义主题文件，只写了博客内容
 
@@ -2704,7 +2672,7 @@ cover: /img/cover/1.webp
 
 ### 如何添加评论功能？
 
-项目支持四种评论系统：**Waline**、**Giscus**、**Remark42**、**Twikoo**。在 `config/site.yaml` 的 `comment` 配置块中选择使用的提供商。
+项目支持三种评论系统：**Waline**、**Giscus**、**Remark42**。在 `config/site.yaml` 的 `comment` 配置块中选择使用的提供商。
 
 #### Waline（推荐）
 
@@ -2934,61 +2902,6 @@ comment:
 - [giscus 官网](https://giscus.app/zh-CN)
 - [giscus-component 文档](https://github.com/giscus/giscus-component)
 
-### Twikoo
-
-[Twikoo](https://twikoo.js.org/) 是一个搭建免费，部署简单，功能丰富的简洁、安全、易用的静态网站评论系统。
-
-**特点：**
-
-- ☁️ 云开发 / 自托管双部署模式
-- 🔒 隐私安全，无广告、无恶意追踪
-- 📧 支持邮件 / 微信公众号评论通知
-- ⚙️ 后台评论审核、敏感词过滤
-- 😊 内置表情包、支持图片上传
-- 🌙 原生支持深色 / 浅色主题切换
-- 👥 访客标记、评论点赞、楼中楼回复
-- 🛡️ 内置反垃圾评论防护
-
-**前置要求：**
-
-1. 部署 Twikoo 服务端（腾讯云开发 / 自托管，部署指南）
-2. 配置云开发环境 ID 或 自托管服务地址
-
-**配置示例：**
-
-```yaml
-comment:
-  provider: twikoo
-  twikoo:
-    envId: # Twikoo 环境 ID (腾讯云) 或 Vercel 环境地址 (必填)
-    region: # 环境地域，默认为 ap-shanghai
-    path: # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-    lang: # 语言 (默认: 'zh-CN')
-```
-
-**参数说明：**
-
-| 参数     | 类型     | 说明                                                          |
-| -------- | -------- | ------------------------------------------------------------- |
-| `envId`  | `string` | Twikoo 环境 ID (**必填**，需带 `https://` 或 `https://`） |
-| `region` | `string` | 环境地域，默认为 `'ap-shanghai'`                           |
-| `path`   | `string` | 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数 |
-| `lang`   | `string` | 语言 (默认: `'zh-CN'`)                                    |
-
-**部署 Twikoo 服务端：**
-
-参考 [Twikoo 官网](https://twikoo.js.org/) 获取详细部署指南。
-
-**主题自动切换：**
-
-Twikoo 已实现主题自动切换
-
-**参考链接：**
-
-- [Twikoo 官网](https://twikoo.js.org/)
-
-
-
 ### 草稿文章如何预览？
 
 运行 `pnpm dev` 本地开发模式，草稿会自动显示（带 DRAFT 标识）。
@@ -3066,8 +2979,8 @@ tags:
 
 ## 更新日志
 
-查看 [CHANGELOG.md](https://github.com/cosZone/astro-koharu/blob/main/CHANGELOG.md) 了解版本更新历史。
+了解版本更新历史。
 
 ---
 
-如有问题或建议，欢迎在 [GitHub Issues](https://github.com/cosZone/astro-koharu/issues) 中反馈。
+如有问题，欢迎在 [微信：13265031714，或 QQ：3284016211](https://wx.mail.qq.com/home/index?sid=zVNjZ4wcUUkuvlpjAMNjYwAA#/list/1/1) 中反馈。
