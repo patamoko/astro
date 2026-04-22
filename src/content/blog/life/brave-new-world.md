@@ -1,10 +1,10 @@
 ---
 title: 美丽新世界
 link: brave-new-world
-sticky: true
+sticky: false
 catalog: true
 lang: cn
-date: 2025-11-17 15:30:00
+date: 2026-03-04 15:30:00
 tags:
   - 读书笔记
   - 社会观察

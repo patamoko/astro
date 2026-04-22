@@ -12,7 +12,7 @@
 # =============================================================================
 site:
   title: 面包の博客 # 网站名称
-  alternate: cosine # 网站英文名称 用于页脚、Logo、@ handle 等
+  alternate: Alex # 网站英文名称 用于页脚、Logo、@ handle 等
   subtitle: # 网站副标题
   name: 面包 # 作者名称 - 请修改为你的名字
   avatar: /img/effects/avatar.jpg # 网站头像
@@ -20,7 +20,7 @@ site:
   author: 面包 # 作者名称 - 请修改为你的名字
   url: https://mianbao.chat # 站点 URL 用于 RSS 和 SEO
   defaultOgImage: /img/avatar.png # 默认 Open Graph 图片
-  startYear: 2024 # 建站年份
+  startYear: 2025 # 建站年份
   timezone: Asia/Shanghai # 时区配置 (IANA 格式)，用于日期显示和处理
   keywords: # SEO 关键词 (全局)
     - 博客
@@ -125,9 +125,6 @@ featuredSeries:
     label: 我的周刊 # 简短名称
     fullName: 我的技术周刊 # 完整名称
     description: | # 支持多行 Markdown
-      这是周刊/系列文章功能的示例配置。
-      你可以用它来发布定期更新的系列内容，如技术周刊、读书笔记系列等。
-      设置 enabled: false 可以关闭此功能。
     cover: /img/weekly_header.webp # 系列页面头图
     enabled: true # 启用此系列
     icon: ri:newspaper-line # 导航图标
@@ -160,11 +157,11 @@ featuredSeries:
 # -----------------------------------------------------------------------------
 social:
   bilibili:
-    url: https://space.bilibili.com/your-id # 替换为你的 Bilibili 链接
+    url: https://space.bilibili.com/416065239?spm_id_from=333.1007.0.0# 替换为你的 Bilibili 链接
     icon: ri:bilibili-fill # Remix Icon 的 Bilibili 图标
     color: '#da708a' # (可选) 图标颜色
   email:
-    url: mailto:your@email.com # 替换为你的邮箱，需加 mailto: 前缀
+    url: https://wx.mail.qq.com/home/index?sid=zVN0YowcaTguvnZoAMNITQAA#/list/1/1 # 替换为你的邮箱，需加 mailto: 前缀
     icon: ri:mail-line
     color: '#55acd5'
   rss:
@@ -223,30 +220,12 @@ friends:
         image: https://your-blog.com/avatar.jpg # 头像链接
         color: "#ffc0cb" # 主题色（可选）
   data: # 友链列表
-    - site: 余弦の博客
-      url: https://blog.cosine.ren
-      owner: cos
-      desc: FE / ACG / 手工 / 深色模式强迫症 / INFP / 兴趣广泛养两只猫的老宅女 / remote
-      image: https://blog.cosine.ren/img/avatar.webp
+    - site: 笨笨
+      url: https://xueres.tech
+      owner: 好兄弟
+      desc: 哈尔滨工业大学/ 土木工程
+      image: /img/effects/acter.jpg
       color: '#ed788b'
-    - site: 示例博客 A
-      url: https://example-a.com
-      owner: Alice
-      desc: 一个热爱技术的开发者
-      image: https://api.dicebear.com/7.x/avataaars/svg?seed=Alice
-      color: '#BEDCFF'
-    - site: 示例博客 B
-      url: https://example-b.com
-      owner: Bob
-      desc: 分享生活与技术的小站
-      image: https://api.dicebear.com/7.x/avataaars/svg?seed=Bob
-      color: '#FBC1CC'
-    - site: 示例博客 C
-      url: https://example-c.com
-      owner: Carol
-      desc: 记录学习与成长的地方
-      image: https://api.dicebear.com/7.x/avataaars/svg?seed=Carol
-      color: '#ABDCFF'
 
 # =============================================================================
 # Announcements

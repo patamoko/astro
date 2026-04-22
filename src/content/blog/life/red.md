@@ -3,7 +3,7 @@ title: 红与黑
 link: The Red and the black
 catalog: true
 lang: cn
-date: 2026-03-04 11:50:00
+date: 2025-11-17 11:50:00
 tags:
   - 读书笔记
   - 社会观察
