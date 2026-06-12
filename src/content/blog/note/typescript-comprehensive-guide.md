@@ -1,8 +1,8 @@
 ---
 title: TypeScript 学习笔记
 link: typescript-comprehensive-guide
-catalog: true
 sticky: true
+catalog: true
 date: 2026-06-12 15:30:00
 description: 一份全面的 TypeScript 课程笔记，涵盖从发展史、基础语法到高级类型（泛型、条件类型、infer 等）的完整知识体系。
 tags:
