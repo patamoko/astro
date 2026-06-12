@@ -83,16 +83,9 @@ const keywords = keywordsOverride || siteConfig.keywords || [siteConfig.title];
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-
-    <!-- Preconnect to self-origin for faster asset loading -->
-    <link rel="preconnect" href={Astro.site} />
-    <link rel="dns-prefetch" href={Astro.site} />
-
-    <!-- Preload critical fonts to avoid layout shift -->
+    {/* Async load rounded fonts — Japanese pages use Gen Jyuu Gothic P, others use ChillRoundF (fix #113) */}
     {locale === 'ja' ? (
       <>
-        <link rel="preload" href="/fonts/GenJyuuGothic-P-Regular/ab19b4c83974389f179355b8ebe0f111.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="preload" href="/fonts/GenJyuuGothic-P-Bold/816b5a0d9b26f6869920bf79821dca74.woff2" as="font" type="font/woff2" crossorigin />
         <link rel="stylesheet" href="/fonts/GenJyuuGothic-P-Regular/result.css" media="print" onload="this.setAttribute('media','all')" />
         <link rel="stylesheet" href="/fonts/GenJyuuGothic-P-Bold/result.css" media="print" onload="this.setAttribute('media','all')" />
       </>
