@@ -1,12 +1,10 @@
 # =============================================================================
-# astro-koharu Dockerfile
+# astro-koharu Dockerfile (Optimized)
 # Multi-stage build for static site generation with nginx
 # =============================================================================
 
 # =============================================================================
 # Stage 1: Builder
-# Combines dependency installation and build in one stage to preserve pnpm
-# symlink structure (copying node_modules between stages breaks symlinks)
 # =============================================================================
 FROM node:22-alpine AS builder
 WORKDIR /app
@@ -36,6 +34,10 @@ COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
 
 # Copy built static files
 COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Pre-compress static assets with gzip for nginx gzip_static
+# This avoids re-compressing on every request
+RUN find /usr/share/nginx/html -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.xml" -o -name "*.svg" -o -name "*.json" \) -exec gzip -9 -k -f {} \;
 
 # Expose port 80
 EXPOSE 80
